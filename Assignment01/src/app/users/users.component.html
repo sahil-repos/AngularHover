@@ -1,0 +1,35 @@
+<!-- NG-TEMPLATE to display  message in case of no data availiable (assigment 1 functionality) -->
+
+<ng-template #noData>
+        <div class="alert alert-danger">
+                No Users are available
+         </div>  
+  </ng-template>
+    
+
+<div *ngIf='users; else noData'>
+    <div class="table-responsive" style='padding-left:10%;padding-right:10%;padding-top: 5%;'>
+        <table class="table table-bordered ">
+                <thead class="theadColor">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let user of users'>
+                         <th scope='row'>{{user.id}}</th>
+                         <td>{{user.name}}</td>
+                         <td>{{user.username}}</td>
+                         <td>
+                            <span appHighlight> {{user.email}}</span>
+                        </td>
+                    </tr>   
+                </tbody>
+        </table>
+    </div>
+</div>
+
+
